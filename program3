@@ -1,0 +1,50 @@
+#include<stdio.h>
+struct fraction
+{
+        int n,d;
+};
+int input(struct fraction *f1,struct fraction *f2)
+{
+        int a,b,c,e;
+        printf("enter the numerator and denomenator of num1:");
+        scanf("%d/%d",&f1->n,&f1->d);
+        printf("enter the numerator and denomenator of num2:");
+        scanf("%d/%d",&f2->n,&f2->d);
+}
+int cal(struct fraction f1,struct fraction f2,struct fraction *f3)
+{
+        if(f1.n==f2.d)
+        {
+        f3->n=f1.n+f2.n;
+        f3->d=f1.d;
+        }
+        else
+        {
+        f3->n=((f1.n*f2.d)+(f2.n*f1.d));
+        f3->d=(f1.d*f2.d);
+        }
+}
+int output(struct fraction f3)
+{
+        if(f3.d==0)
+{
+        printf("invalid input");
+}
+        else if(f3.n==f3.d)
+{
+        printf("1");
+}
+        else
+{
+        printf("%d/%d",f3.n,f3.d);
+}
+}
+int main()
+{
+        struct fraction f1,f2,f3;
+        input(&f1,&f2);
+        cal(f1,f2,&f3);
+        output(f3);
+
+
+}
